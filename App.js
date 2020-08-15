@@ -31,13 +31,51 @@ const App: () => React$Node = () => {
         setImg(responseJson.meals[0].strMealThumb);
         //
         setYoutubeLink(responseJson.meals[0].strYoutube);
+
+        // integredients :
+        setingredients([]);
+        getIntegredients(responseJson.meals[0]);
       })
       .catch((error) => {
         console.error(error);
       });
   }
 
+  //function :
+  function getIntegredients(allData) {
+    console.log(
+      allData[`strIngredient${1}`] + ' /' + allData[`strMeasure${1}`],
+    );
+
+    for (let index = 0; index < 20; index++) {
+      if (allData[`strIngredient${index}`]) {
+        setingredients((prevList) => {
+          return [
+            {
+              strIngredient: allData[`strIngredient${index}`],
+              strMeasure: allData[`strMeasure${index}`],
+            },
+            ...prevList,
+          ];
+        });
+
+        console.log(
+          allData[`strIngredient${index}`] +
+            ' /' +
+            allData[`strMeasure${index}`],
+        );
+      }
+    }
+  }
+  //
+
   //const goas here
+  const [isLoading, setisLoading] = useState(true);
+
+  const [ingredients, setingredients] = useState([
+    {strIngredient: 'strIngredientExmple'},
+  ]);
+
   const [Youtubelink, setYoutubeLink] = useState('TYoutube Link !');
 
   const [title, setTitle] = useState('Title Exmple !');
@@ -84,22 +122,32 @@ const App: () => React$Node = () => {
           <Text style={{fontSize: 12}}> {area} </Text>
         </View>
       </View>
-      <View style={{padding: 10, flex: 1, width: '100%'}}>
-        <ScrollView style={{width: '100%', padding: 10, flex: 1}}>
-          <View style={{padding: 10}}>
-            <Text>{instructions}</Text>
-          </View>
-        </ScrollView>
+      <ScrollView style={{width: '100%', padding: 10, height: 80}}>
+        <View style={{paddingHorizontal: 10}}>
+          <Text style={{fontWeight: 'bold', fontSize: 18}}>Instructions</Text>
 
+          <Text>{instructions}</Text>
+        </View>
+      </ScrollView>
+      <View style={{padding: 10, flex: 1, width: '100%'}}>
         <View style={{marginLeft: 20, paddingVertical: 5}}>
           <Text style={{fontWeight: 'bold', fontSize: 18}}>Integredients</Text>
-
-          <Text>- Exmple 1</Text>
-          <Text>- Exmple 2</Text>
-          <Text>- Exmple 3</Text>
+          <ScrollView style={{width: '100%', padding: 10, height: 120}}>
+            {ingredients.map((data, key) => {
+              return (
+                <View style={{flexDirection: 'row'}}>
+                  <View style={{flex: 1}}>
+                    <Text>{data.strIngredient}</Text>
+                  </View>
+                  <View>
+                    <Text>{data.strMeasure}</Text>
+                  </View>
+                </View>
+              );
+            })}
+          </ScrollView>
         </View>
       </View>
-
       <View
         style={{
           flex: 1,
