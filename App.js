@@ -4,7 +4,7 @@ import {StyleSheet, View, Text} from 'react-native';
 const App: () => React$Node = () => {
   return (
     <View style={styles.container}>
-      <Text>Random Meal Genrator</Text>
+      <Text>" Random Meal Genrator "</Text>
     </View>
   );
 };
