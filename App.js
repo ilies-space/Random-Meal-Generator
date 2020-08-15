@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text, Button} from 'react-native';
+import {StyleSheet, View, Text, Button, ScrollView} from 'react-native';
 
 const App: () => React$Node = () => {
   return (
@@ -35,14 +35,27 @@ const App: () => React$Node = () => {
         </View>
       </View>
       <View flex={1}>
-        <View padding={10}>
-          <Text>
-            Esse ad id aliquip velit culpa est eiusmod adipisicing dolore qui
-            Lorem.Esse ad id aliquip velit culpa est eiusmod adipisicing dolore
-            qui Lorem.Esse ad id aliquip velit culpa est eiusmod adipisicing
-            dolore qui Lorem.
-          </Text>
-        </View>
+        <ScrollView>
+          <View padding={10}>
+            <Text>
+              Esse ad id aliquip velit culpa est eiusmod adipisicing dolore qui
+              Lorem.Esse ad id aliquip velit culpa est eiusmod adipisicing
+              dolore qui Lorem.Esse ad id aliquip velit culpa est eiusmod
+              adipisicing dolore qui Lorem. Esse ad id aliquip velit culpa est
+              eiusmod adipisicing dolore qui Lorem.Esse ad id aliquip velit
+              culpa est eiusmod adipisicing dolore qui Lorem.Esse ad id aliquip
+              velit culpa est eiusmod adipisicing dolore qui Lorem.Esse ad id
+              aliquip velit culpa est eiusmod adipisicing dolore qui Lorem.Esse
+              ad id aliquip velit culpa est eiusmod adipisicing dolore qui
+              Lorem.Esse ad id aliquip velit culpa est eiusmod adipisicing
+              dolore qui Lorem.Esse ad id aliquip velit culpa est eiusmod
+              adipisicing dolore qui Lorem.Esse ad id aliquip velit culpa est
+              eiusmod adipisicing dolore qui Lorem.Esse ad id aliquip velit
+              culpa est eiusmod adipisicing dolore qui Lorem.
+            </Text>
+          </View>
+        </ScrollView>
+
         <View padding={10}>
           <Text style={{fontWeight: 'bold', fontSize: 18}}>Integredients</Text>
 
