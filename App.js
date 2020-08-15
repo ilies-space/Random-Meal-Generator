@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, View, Text, Button, ScrollView} from 'react-native';
 
 const App: () => React$Node = () => {
+  // functions goas here
+
+  const [title, setTitle] = useState('Title Exmple !');
+  const [img, setImg] = useState('img Exmple !');
+  const [instructions, setInstructions] = useState(
+    'Instruction exmple Ipsum duis velit id laborum culpa magna magna aute culpa Culpa eiusmod proident incididunt ut dolore dolor esse culpa excepteur reprehenderit ad anim sint..',
+  );
+
   return (
     <View style={styles.container}>
-      <Button title="get meal !" />
+      <Button
+        title="get meal !"
+        onPress={() => console.log('Get randome MEal')}
+      />
       <View
         style={{
           flexDirection: 'row',
@@ -21,7 +32,7 @@ const App: () => React$Node = () => {
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <Text>" IMG "</Text>
+          <Text>" {img} "</Text>
         </View>
         <View
           style={{
@@ -30,33 +41,19 @@ const App: () => React$Node = () => {
             flex: 1,
             justifyContent: 'center',
           }}>
-          <Text style={{fontWeight: 'bold', fontSize: 18}}>" TITLE "</Text>
+          <Text style={{fontWeight: 'bold', fontSize: 18}}>" {title} "</Text>
           <Text style={{fontSize: 12}}>" Category "</Text>
         </View>
       </View>
-      <View flex={1}>
-        <ScrollView>
-          <View padding={10}>
-            <Text>
-              Esse ad id aliquip velit culpa est eiusmod adipisicing dolore qui
-              Lorem.Esse ad id aliquip velit culpa est eiusmod adipisicing
-              dolore qui Lorem.Esse ad id aliquip velit culpa est eiusmod
-              adipisicing dolore qui Lorem. Esse ad id aliquip velit culpa est
-              eiusmod adipisicing dolore qui Lorem.Esse ad id aliquip velit
-              culpa est eiusmod adipisicing dolore qui Lorem.Esse ad id aliquip
-              velit culpa est eiusmod adipisicing dolore qui Lorem.Esse ad id
-              aliquip velit culpa est eiusmod adipisicing dolore qui Lorem.Esse
-              ad id aliquip velit culpa est eiusmod adipisicing dolore qui
-              Lorem.Esse ad id aliquip velit culpa est eiusmod adipisicing
-              dolore qui Lorem.Esse ad id aliquip velit culpa est eiusmod
-              adipisicing dolore qui Lorem.Esse ad id aliquip velit culpa est
-              eiusmod adipisicing dolore qui Lorem.Esse ad id aliquip velit
-              culpa est eiusmod adipisicing dolore qui Lorem.
-            </Text>
+      <View style={{padding: 10, flex: 1, width: '100%'}}>
+        <ScrollView
+          style={{width: '100%', padding: 10, backgroundColor: 'red', flex: 1}}>
+          <View style={{padding: 10, backgroundColor: 'red'}}>
+            <Text>{instructions}</Text>
           </View>
         </ScrollView>
 
-        <View padding={10}>
+        <View style={{width: '100%'}}>
           <Text style={{fontWeight: 'bold', fontSize: 18}}>Integredients</Text>
 
           <Text>- Exmple 1</Text>
