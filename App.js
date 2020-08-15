@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 
 const App: () => React$Node = () => {
+  const [isLoading, setisLoading] = useState(false);
+
   // functions goas here
 
   function getDataFromApi() {
@@ -38,7 +40,8 @@ const App: () => React$Node = () => {
       })
       .catch((error) => {
         console.error(error);
-      });
+      })
+      .finally(() => setisLoading(false));
   }
 
   //function :
@@ -70,7 +73,6 @@ const App: () => React$Node = () => {
   //
 
   //const goas here
-  const [isLoading, setisLoading] = useState(true);
 
   const [ingredients, setingredients] = useState([
     {strIngredient: 'strIngredientExmple'},
@@ -88,83 +90,95 @@ const App: () => React$Node = () => {
   );
   const [instructions, setInstructions] = useState('instruction Exmple');
 
-  return (
-    <View style={styles.container}>
-      <View
-        style={{
-          flexDirection: 'row',
-          height: 150,
-          width: '100%',
-        }}>
+  if (isLoading) {
+    return (
+      <View>
+        <Text>Loading</Text>
+      </View>
+    );
+  } else {
+    return (
+      <View style={styles.container}>
         <View
           style={{
             flexDirection: 'row',
             height: 150,
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
+            width: '100%',
           }}>
-          <Image
-            style={{width: 150, height: 150}}
-            source={{
-              uri: img,
-            }}
-          />
+          <View
+            style={{
+              flexDirection: 'row',
+              height: 150,
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Image
+              style={{width: 150, height: 150}}
+              source={{
+                uri: img,
+              }}
+            />
+          </View>
+          <View
+            style={{
+              height: 150,
+              flex: 1,
+              justifyContent: 'center',
+            }}>
+            <Text style={{fontWeight: 'bold', fontSize: 18}}>" {title} "</Text>
+            <Text style={{fontSize: 12}}> {categorie} </Text>
+            <Text style={{fontSize: 12}}> {area} </Text>
+          </View>
+        </View>
+        <ScrollView style={{width: '100%', padding: 10, height: 80}}>
+          <View style={{paddingHorizontal: 10}}>
+            <Text style={{fontWeight: 'bold', fontSize: 18}}>Instructions</Text>
+
+            <Text>{instructions}</Text>
+          </View>
+        </ScrollView>
+        <View style={{padding: 10, flex: 1, width: '100%'}}>
+          <View style={{marginLeft: 20, paddingVertical: 5}}>
+            <Text style={{fontWeight: 'bold', fontSize: 18}}>
+              Integredients
+            </Text>
+            <ScrollView style={{width: '100%', padding: 10, height: 120}}>
+              {ingredients.map((data, key) => {
+                return (
+                  <View style={{flexDirection: 'row'}}>
+                    <View style={{flex: 1}}>
+                      <Text>{data.strIngredient}</Text>
+                    </View>
+                    <View>
+                      <Text>{data.strMeasure}</Text>
+                    </View>
+                  </View>
+                );
+              })}
+            </ScrollView>
+          </View>
         </View>
         <View
           style={{
-            height: 150,
             flex: 1,
+            width: '90%',
+            alignItems: 'center',
             justifyContent: 'center',
+            backgroundColor: '#ecf0f1',
           }}>
-          <Text style={{fontWeight: 'bold', fontSize: 18}}>" {title} "</Text>
-          <Text style={{fontSize: 12}}> {categorie} </Text>
-          <Text style={{fontSize: 12}}> {area} </Text>
+          <Text> {Youtubelink} </Text>
         </View>
-      </View>
-      <ScrollView style={{width: '100%', padding: 10, height: 80}}>
-        <View style={{paddingHorizontal: 10}}>
-          <Text style={{fontWeight: 'bold', fontSize: 18}}>Instructions</Text>
 
-          <Text>{instructions}</Text>
-        </View>
-      </ScrollView>
-      <View style={{padding: 10, flex: 1, width: '100%'}}>
-        <View style={{marginLeft: 20, paddingVertical: 5}}>
-          <Text style={{fontWeight: 'bold', fontSize: 18}}>Integredients</Text>
-          <ScrollView style={{width: '100%', padding: 10, height: 120}}>
-            {ingredients.map((data, key) => {
-              return (
-                <View style={{flexDirection: 'row'}}>
-                  <View style={{flex: 1}}>
-                    <Text>{data.strIngredient}</Text>
-                  </View>
-                  <View>
-                    <Text>{data.strMeasure}</Text>
-                  </View>
-                </View>
-              );
-            })}
-          </ScrollView>
+        <View style={{margin: 10}}>
+          <Button title="get meal !" onPress={() => getDataFromApi()} />
         </View>
       </View>
-      <View
-        style={{
-          flex: 1,
-          width: '90%',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: '#ecf0f1',
-        }}>
-        <Text> {Youtubelink} </Text>
-      </View>
-
-      <View style={{margin: 10}}>
-        <Button title="get meal !" onPress={() => getDataFromApi()} />
-      </View>
-    </View>
-  );
+    );
+  }
 };
+
+const MainScreen = () => {};
 
 const styles = StyleSheet.create({
   container: {
