@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, Button, ScrollView} from 'react-native';
+import {StyleSheet, View, Text, Button, ScrollView, Image} from 'react-native';
 
 const App: () => React$Node = () => {
   // functions goas here
 
   const [title, setTitle] = useState('Title Exmple !');
-  const [img, setImg] = useState('img Exmple !');
+  const [img, setImg] = useState(
+    'https://www.themealdb.com/images/media/meals/wrpwuu1511786491.jpg',
+  );
   const [instructions, setInstructions] = useState(
     'Instruction exmple Ipsum duis velit id laborum culpa magna magna aute culpa Culpa eiusmod proident incididunt ut dolore dolor esse culpa excepteur reprehenderit ad anim sint..',
   );
@@ -19,30 +21,36 @@ const App: () => React$Node = () => {
       <View
         style={{
           flexDirection: 'row',
-          height: 80,
+          height: 150,
           backgroundColor: 'red',
           width: '100%',
         }}>
         <View
           style={{
             flexDirection: 'row',
-            height: 80,
+            height: 150,
             backgroundColor: 'yellow',
             flex: 1,
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <Text>" {img} "</Text>
+          <Image
+            style={{width: 150, height: 150}}
+            source={{
+              uri: img,
+            }}
+          />
         </View>
         <View
           style={{
-            height: 80,
+            height: 150,
             backgroundColor: 'gray',
             flex: 1,
             justifyContent: 'center',
           }}>
           <Text style={{fontWeight: 'bold', fontSize: 18}}>" {title} "</Text>
           <Text style={{fontSize: 12}}>" Category "</Text>
+          <Text style={{fontSize: 12}}>" strArea "</Text>
         </View>
       </View>
       <View style={{padding: 10, flex: 1, width: '100%'}}>
