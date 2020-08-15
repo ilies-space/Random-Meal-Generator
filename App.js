@@ -14,18 +14,41 @@ const App: () => React$Node = () => {
 
   function getDataFromApi() {
     console.log('getDataFromApi');
+    fetch('https://www.themealdb.com/api/json/v1/1/random.php', {
+      method: 'GET',
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        //
+        setTitle(responseJson.meals[0].strMeal);
+        //
+        setcategorie(responseJson.meals[0].strCategory);
+        //
+        setArea(responseJson.meals[0].strArea);
+        //
+        setInstructions(responseJson.meals[0].strInstructions);
+        //
+        setImg(responseJson.meals[0].strMealThumb);
+        //
+        setYoutubeLink(responseJson.meals[0].strYoutube);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   //const goas here
-  const [meal, setMeal] = useState();
+  const [Youtubelink, setYoutubeLink] = useState('TYoutube Link !');
 
   const [title, setTitle] = useState('Title Exmple !');
+
+  const [categorie, setcategorie] = useState('category exmple');
+  const [area, setArea] = useState('exmple area');
+
   const [img, setImg] = useState(
     'https://www.themealdb.com/images/media/meals/wrpwuu1511786491.jpg',
   );
-  const [instructions, setInstructions] = useState(
-    'Instruction exmple Ipsum duis velit id Do sit Et ad Nulla veniam in dolor commodo culpa ex excepteur magna reprehenderit occaecat dolor excepteur laborum. Incididunt qui nisi exercitation ullamco officia consectetur labore. Consequat proident excepteur aliqua nulla id dolore laboris et mollit nostrud fugiat tempor qui. Ea laboris nisi occaecat aliqua eu. Do elit ut ad quis occaecat. aliqua veniam sit. elit sunt est ipsum. laborum culpa magna magna aute culpa Culpa eiusmod proident incididunt ut dolore dolor esse culpa excepteur reprehenderit ad anim sint..',
-  );
+  const [instructions, setInstructions] = useState('instruction Exmple');
 
   return (
     <View style={styles.container}>
@@ -57,8 +80,8 @@ const App: () => React$Node = () => {
             justifyContent: 'center',
           }}>
           <Text style={{fontWeight: 'bold', fontSize: 18}}>" {title} "</Text>
-          <Text style={{fontSize: 12}}>" Category "</Text>
-          <Text style={{fontSize: 12}}>" strArea "</Text>
+          <Text style={{fontSize: 12}}> {categorie} </Text>
+          <Text style={{fontSize: 12}}> {area} </Text>
         </View>
       </View>
       <View style={{padding: 10, flex: 1, width: '100%'}}>
@@ -85,7 +108,7 @@ const App: () => React$Node = () => {
           justifyContent: 'center',
           backgroundColor: '#ecf0f1',
         }}>
-        <Text>Youtube video goas here !</Text>
+        <Text> {Youtubelink} </Text>
       </View>
 
       <View style={{margin: 10}}>
