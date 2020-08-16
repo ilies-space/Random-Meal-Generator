@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {
   StyleSheet,
   View,
@@ -9,9 +9,18 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+//yt
+import YoutubePlayer from 'react-native-youtube-iframe';
+
+//
+
 const App: () => React$Node = () => {
   const [isLoading, setisLoading] = useState(false);
 
+  //
+  const playerRef = useRef(null);
+  const [playing, setPlaying] = useState(true);
+  //
   // functions goas here
 
   function getDataFromApi() {
@@ -32,7 +41,8 @@ const App: () => React$Node = () => {
         //
         setImg(responseJson.meals[0].strMealThumb);
         //
-        setYoutubeLink(responseJson.meals[0].strYoutube);
+        //setYoutubeLink(responseJson.meals[0].strYoutube);
+        setYoutubeVideoID(responseJson.meals[0].strYoutube.substring(32, 43));
 
         // integredients :
         setingredients([]);
@@ -78,7 +88,7 @@ const App: () => React$Node = () => {
     {strIngredient: 'strIngredientExmple'},
   ]);
 
-  const [Youtubelink, setYoutubeLink] = useState('TYoutube Link !');
+  const [YoutubeVideoID, setYoutubeVideoID] = useState('youtube id');
 
   const [title, setTitle] = useState('Title Exmple !');
 
@@ -146,7 +156,7 @@ const App: () => React$Node = () => {
             <ScrollView style={{width: '100%', padding: 10, height: 120}}>
               {ingredients.map((data, key) => {
                 return (
-                  <View style={{flexDirection: 'row'}}>
+                  <View style={{flexDirection: 'row'}} key={key}>
                     <View style={{flex: 1}}>
                       <Text>{data.strIngredient}</Text>
                     </View>
@@ -167,7 +177,23 @@ const App: () => React$Node = () => {
             justifyContent: 'center',
             backgroundColor: '#ecf0f1',
           }}>
-          <Text> {Youtubelink} </Text>
+          <YoutubePlayer
+            ref={playerRef}
+            height={300}
+            width={400}
+            videoId={YoutubeVideoID}
+            play={playing}
+            onChangeState={(event) => console.log(event)}
+            onReady={() => console.log('ready')}
+            onError={(e) => console.log(e)}
+            onPlaybackQualityChange={(q) => console.log(q)}
+            volume={50}
+            playbackRate={1}
+            initialPlayerParams={{
+              cc_lang_pref: 'us',
+              showClosedCaptions: true,
+            }}
+          />
         </View>
 
         <View style={{margin: 10}}>
@@ -177,8 +203,6 @@ const App: () => React$Node = () => {
     );
   }
 };
-
-const MainScreen = () => {};
 
 const styles = StyleSheet.create({
   container: {
