@@ -8,6 +8,8 @@ target 'RandomMealGenerator' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  pod 'react-native-shake', :path => '../node_modules/react-native-shake'
+
   target 'RandomMealGeneratorTests' do
     inherit! :complete
     # Pods for testing

@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {
   StyleSheet,
   View,
@@ -11,10 +11,18 @@ import {
 
 //yt
 import YoutubePlayer from 'react-native-youtube-iframe';
+//shaking :
+import RNShake from 'react-native-shake';
 
 //
 
 const App: () => React$Node = () => {
+  //
+  useEffect(() => {
+    RNShake.addEventListener('ShakeEvent', () => {
+      console.log('shaked !!');
+    });
+  });
   const [isLoading, setisLoading] = useState(false);
 
   //
