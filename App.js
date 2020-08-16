@@ -9,20 +9,22 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-//yt
-import YoutubePlayer from 'react-native-youtube-iframe';
 //shaking :
 import RNShake from 'react-native-shake';
+import {MealImage} from './src/Componenets/Image';
+import {Instruction} from './src/Componenets/Instruction';
+import {Ingrediants} from './src/Componenets/Ingrediants';
+import {YoutubeDisplayer} from './src/Componenets/YoutubeDisplayer';
 
 //
 
 const App: () => React$Node = () => {
   //
-  useEffect(() => {
-    RNShake.addEventListener('ShakeEvent', () => {
-      console.log('shaked !!');
-    });
-  });
+  // useEffect(() => {
+  //   RNShake.addEventListener('ShakeEvent', () => {
+  //     console.log('shaked !!');
+  //   });
+  // });
   const [isLoading, setisLoading] = useState(false);
 
   //
@@ -108,108 +110,28 @@ const App: () => React$Node = () => {
   );
   const [instructions, setInstructions] = useState('instruction Exmple');
 
-  if (isLoading) {
-    return (
+  return (
+    <View style={styles.container}>
       <View>
-        <Text>Loading</Text>
+        <Button title="get meal !" onPress={() => getDataFromApi()} />
       </View>
-    );
-  } else {
-    return (
-      <View style={styles.container}>
-        <View
-          style={{
-            flexDirection: 'row',
-            height: 150,
-            width: '100%',
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              height: 150,
-              flex: 1,
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <Image
-              style={{width: 150, height: 150}}
-              source={{
-                uri: img,
-              }}
-            />
-          </View>
-          <View
-            style={{
-              height: 150,
-              flex: 1,
-              justifyContent: 'center',
-            }}>
-            <Text style={{fontWeight: 'bold', fontSize: 18}}>" {title} "</Text>
-            <Text style={{fontSize: 12}}> {categorie} </Text>
-            <Text style={{fontSize: 12}}> {area} </Text>
-          </View>
-        </View>
-        <ScrollView style={{width: '100%', padding: 10, height: 80}}>
-          <View style={{paddingHorizontal: 10}}>
-            <Text style={{fontWeight: 'bold', fontSize: 18}}>Instructions</Text>
-
-            <Text>{instructions}</Text>
-          </View>
-        </ScrollView>
-        <View style={{padding: 10, flex: 1, width: '100%'}}>
-          <View style={{marginLeft: 20, paddingVertical: 5}}>
-            <Text style={{fontWeight: 'bold', fontSize: 18}}>
-              Integredients
-            </Text>
-            <ScrollView style={{width: '100%', padding: 10, height: 120}}>
-              {ingredients.map((data, key) => {
-                return (
-                  <View style={{flexDirection: 'row'}} key={key}>
-                    <View style={{flex: 1}}>
-                      <Text>{data.strIngredient}</Text>
-                    </View>
-                    <View>
-                      <Text>{data.strMeasure}</Text>
-                    </View>
-                  </View>
-                );
-              })}
-            </ScrollView>
-          </View>
-        </View>
-        <View
-          style={{
-            flex: 1,
-            width: '90%',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: '#ecf0f1',
-          }}>
-          <YoutubePlayer
-            ref={playerRef}
-            height={300}
-            width={400}
-            videoId={YoutubeVideoID}
-            play={playing}
-            onChangeState={(event) => console.log(event)}
-            onReady={() => console.log('ready')}
-            onError={(e) => console.log(e)}
-            onPlaybackQualityChange={(q) => console.log(q)}
-            volume={50}
-            playbackRate={1}
-            initialPlayerParams={{
-              cc_lang_pref: 'us',
-              showClosedCaptions: true,
-            }}
-          />
-        </View>
-
-        <View style={{margin: 10}}>
-          <Button title="get meal !" onPress={() => getDataFromApi()} />
-        </View>
-      </View>
-    );
-  }
+      <ScrollView>
+        <MealImage img={img} />
+        <Text style={{fontWeight: 'bold', fontSize: 18}}>" {title} "</Text>
+        <Text style={{fontSize: 12}}> {categorie} </Text>
+        <Text style={{fontSize: 12}}> {area} </Text>
+        <Text style={{fontWeight: 'bold', fontSize: 18}}>Instructions</Text>
+        <Instruction instructions={instructions} />
+        <Text style={{fontWeight: 'bold', fontSize: 18}}>ingredients</Text>
+        <Ingrediants ingredients={ingredients} />
+        <YoutubeDisplayer
+          playerRef={playerRef}
+          YoutubeVideoID={YoutubeVideoID}
+          playing={playing}
+        />
+      </ScrollView>
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
