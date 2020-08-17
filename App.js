@@ -20,7 +20,7 @@ import {Instruction} from './src/Componenets/Instruction';
 import {Ingrediants} from './src/Componenets/Ingrediants';
 import {YoutubeDisplayer} from './src/Componenets/YoutubeDisplayer';
 //
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 //
 
@@ -136,11 +136,24 @@ const App: () => React$Node = () => {
               backgroundColor: '#F0F6F5',
               borderBottomLeftRadius: 40,
               borderBottomRightRadius: 40,
+              width: '100%',
             }}>
-            <Text style={{fontWeight: 'bold', fontSize: 18}}>{title}</Text>
-            <Text style={{fontSize: 12}}> {categorie} </Text>
-            <Text style={{fontSize: 12}}> {area} </Text>
-            <Icon name="rocket" size={30} color="#900" />
+            <View style={{flexDirection: 'row'}}>
+              <View style={{width: '90%'}}>
+                <Text style={{fontWeight: 'bold', fontSize: 18}}>{title}</Text>
+                <Text style={{fontSize: 12}}> {categorie} </Text>
+                <Text style={{fontSize: 12}}> {area} </Text>
+              </View>
+
+              <View
+                style={{
+                  width: '10%',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                <Icon name="heart" size={30} color="red" />
+              </View>
+            </View>
           </View>
         </Row>
 
