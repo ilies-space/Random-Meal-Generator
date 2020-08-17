@@ -10,6 +10,8 @@ target 'RandomMealGenerator' do
 
   pod 'react-native-shake', :path => '../node_modules/react-native-shake'
 
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
   target 'RandomMealGeneratorTests' do
     inherit! :complete
     # Pods for testing

@@ -19,6 +19,8 @@ import {MealImage} from './src/Componenets/Image';
 import {Instruction} from './src/Componenets/Instruction';
 import {Ingrediants} from './src/Componenets/Ingrediants';
 import {YoutubeDisplayer} from './src/Componenets/YoutubeDisplayer';
+//
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 //
 
@@ -138,6 +140,7 @@ const App: () => React$Node = () => {
             <Text style={{fontWeight: 'bold', fontSize: 18}}>{title}</Text>
             <Text style={{fontSize: 12}}> {categorie} </Text>
             <Text style={{fontSize: 12}}> {area} </Text>
+            <Icon name="rocket" size={30} color="#900" />
           </View>
         </Row>
 
@@ -207,23 +210,6 @@ const App: () => React$Node = () => {
         </Row>
       </Grid>
       <Button title="get meal !" onPress={() => getDataFromApi()} />
-
-      {/* <View>
-      </View>
-      <ScrollView>
-        <MealImage img={img} />
-        <Text style={{fontSize: 12}}> {categorie} </Text>
-        <Text style={{fontSize: 12}}> {area} </Text>
-        <Text style={{fontWeight: 'bold', fontSize: 18}}>Instructions</Text>
-        <Instruction instructions={instructions} />
-        <Text style={{fontWeight: 'bold', fontSize: 18}}>ingredients</Text>
-        <Ingrediants ingredients={ingredients} />
-        <YoutubeDisplayer
-          playerRef={playerRef}
-          YoutubeVideoID={YoutubeVideoID}
-          playing={playing}
-        />
-      </ScrollView> */}
     </View>
   );
 };
