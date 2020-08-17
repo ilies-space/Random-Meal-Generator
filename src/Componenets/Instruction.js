@@ -3,8 +3,12 @@ import {View, Text, ScrollView} from 'react-native';
 
 export const Instruction = ({instructions}) => {
   return (
-    <ScrollView style={{paddingHorizontal: 10}}>
-      <Text>{instructions}</Text>
-    </ScrollView>
+    <View>
+      <Text style={{fontWeight: 'bold', fontSize: 18}}>Instructions</Text>
+
+      <ScrollView>
+        <Text>{instructions}</Text>
+      </ScrollView>
+    </View>
   );
 };

@@ -61,6 +61,8 @@ const App: () => React$Node = () => {
         // integredients :
         setingredients([]);
         getIntegredients(responseJson.meals[0]);
+        //default screen:
+        setcurrentScreen(<Instruction instructions={instructions} />);
       })
       .catch((error) => {
         console.error(error);
@@ -114,16 +116,25 @@ const App: () => React$Node = () => {
   );
   const [instructions, setInstructions] = useState('instruction Exmple');
 
+  const [currentScreen, setcurrentScreen] = useState(
+    <Instruction instructions={instructions} />,
+  );
+
   return (
     <View style={styles.container}>
       <Grid>
         <Row size={2}>
-          <View style={{backgroundColor: 'red', width: '100%'}}>
+          <View style={{width: '100%'}}>
             <MealImage img={img} />
           </View>
         </Row>
         <Row size={1}>
-          <View style={{backgroundColor: 'yellow', width: '100%'}}>
+          <View
+            style={{
+              backgroundColor: '#F0F6F5',
+              borderBottomLeftRadius: 40,
+              borderBottomRightRadius: 40,
+            }}>
             <Text style={{fontWeight: 'bold', fontSize: 18}}>{title}</Text>
             <Text style={{fontSize: 12}}> {categorie} </Text>
             <Text style={{fontSize: 12}}> {area} </Text>
@@ -131,8 +142,67 @@ const App: () => React$Node = () => {
         </Row>
 
         <Row size={3}>
-          <View style={{backgroundColor: 'pink', width: '100%'}}>
-            <Instruction instructions={instructions} />
+          <View style={{backgroundColor: 'white', width: '100%'}}>
+            <View style={{height: '10%', margin: 10}}>
+              <Grid>
+                <Col>
+                  <TouchableOpacity
+                    onPress={() =>
+                      setcurrentScreen(
+                        <Instruction instructions={instructions} />,
+                      )
+                    }
+                    style={{
+                      alignItems: 'center',
+                      backgroundColor: 'red',
+                      borderRadius: 20,
+                      padding: 10,
+                      marginHorizontal: 10,
+                    }}>
+                    <Text>instructions</Text>
+                  </TouchableOpacity>
+                </Col>
+                <Col>
+                  <TouchableOpacity
+                    onPress={() =>
+                      setcurrentScreen(
+                        <Ingrediants ingredients={ingredients} />,
+                      )
+                    }
+                    style={{
+                      alignItems: 'center',
+                      backgroundColor: 'gray',
+                      borderRadius: 20,
+                      padding: 10,
+                      marginHorizontal: 10,
+                    }}>
+                    <Text>ingredients</Text>
+                  </TouchableOpacity>
+                </Col>
+                <Col>
+                  <TouchableOpacity
+                    onPress={() =>
+                      setcurrentScreen(
+                        <YoutubeDisplayer
+                          playerRef={playerRef}
+                          YoutubeVideoID={YoutubeVideoID}
+                          playing={playing}
+                        />,
+                      )
+                    }
+                    style={{
+                      alignItems: 'center',
+                      backgroundColor: 'gray',
+                      borderRadius: 20,
+                      padding: 10,
+                      marginHorizontal: 10,
+                    }}>
+                    <Text>Video</Text>
+                  </TouchableOpacity>
+                </Col>
+              </Grid>
+            </View>
+            {currentScreen}
           </View>
         </Row>
       </Grid>
@@ -163,6 +233,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#F0F6F5',
   },
 });
 
