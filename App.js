@@ -11,6 +11,10 @@ import {
 
 //shaking :
 import RNShake from 'react-native-shake';
+//gride :
+import {Col, Row, Grid} from 'react-native-easy-grid';
+
+//components
 import {MealImage} from './src/Componenets/Image';
 import {Instruction} from './src/Componenets/Instruction';
 import {Ingrediants} from './src/Componenets/Ingrediants';
@@ -112,12 +116,32 @@ const App: () => React$Node = () => {
 
   return (
     <View style={styles.container}>
-      <View>
-        <Button title="get meal !" onPress={() => getDataFromApi()} />
+      <Grid>
+        <Row size={2}>
+          <View style={{backgroundColor: 'red', width: '100%'}}>
+            <MealImage img={img} />
+          </View>
+        </Row>
+        <Row size={1}>
+          <View style={{backgroundColor: 'yellow', width: '100%'}}>
+            <Text style={{fontWeight: 'bold', fontSize: 18}}>{title}</Text>
+            <Text style={{fontSize: 12}}> {categorie} </Text>
+            <Text style={{fontSize: 12}}> {area} </Text>
+          </View>
+        </Row>
+
+        <Row size={3}>
+          <View style={{backgroundColor: 'pink', width: '100%'}}>
+            <Instruction instructions={instructions} />
+          </View>
+        </Row>
+      </Grid>
+      <Button title="get meal !" onPress={() => getDataFromApi()} />
+
+      {/* <View>
       </View>
       <ScrollView>
         <MealImage img={img} />
-        <Text style={{fontWeight: 'bold', fontSize: 18}}>" {title} "</Text>
         <Text style={{fontSize: 12}}> {categorie} </Text>
         <Text style={{fontSize: 12}}> {area} </Text>
         <Text style={{fontWeight: 'bold', fontSize: 18}}>Instructions</Text>
@@ -129,7 +153,7 @@ const App: () => React$Node = () => {
           YoutubeVideoID={YoutubeVideoID}
           playing={playing}
         />
-      </ScrollView>
+      </ScrollView> */}
     </View>
   );
 };
@@ -139,7 +163,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 5,
   },
 });
 
