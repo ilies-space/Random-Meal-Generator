@@ -7,11 +7,17 @@ export const Ingrediants = ({ingredients}) => {
       {ingredients.map((data, key) => {
         return (
           <View style={{flexDirection: 'row'}} key={key}>
-            <View style={{flex: 1}}>
-              <Text>{data.strIngredient}</Text>
+            <View style={{flex: 1, marginVertical: 5}}>
+              <Text
+                style={{color: '#979797', fontWeight: 'bold', fontSize: 15}}>
+                {'*  ' + data.strIngredient}
+              </Text>
             </View>
             <View>
-              <Text>{data.strMeasure}</Text>
+              <Text
+                style={{color: '#979797', fontWeight: 'bold', fontSize: 15}}>
+                {data.strMeasure}
+              </Text>
             </View>
           </View>
         );

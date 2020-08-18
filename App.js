@@ -6,6 +6,7 @@ import {
   Button,
   ScrollView,
   Image,
+  Modal,
   TouchableOpacity,
 } from 'react-native';
 
@@ -65,6 +66,14 @@ const App: () => React$Node = () => {
         getIntegredients(responseJson.meals[0]);
         //default screen:
         setcurrentScreen(<Instruction instructions={instructions} />);
+        setbtn1Style('#FF8A00');
+        settxt1Style('white');
+        //
+        setbtn2Style('#F0F6F5');
+        settxt2Style('#9DB4A0');
+        //
+        setbtn3Style('#F0F6F5');
+        settxt3Style('#9DB4A0');
       })
       .catch((error) => {
         console.error(error);
@@ -121,6 +130,11 @@ const App: () => React$Node = () => {
   const [currentScreen, setcurrentScreen] = useState(
     <Instruction instructions={instructions} />,
   );
+
+  //
+  const [VideoGrid, setVideoGrid] = useState(3);
+
+  //
 
   const [btn1Style, setbtn1Style] = useState('#FF8A00');
   const [txt1Style, settxt1Style] = useState('white');
@@ -179,23 +193,21 @@ const App: () => React$Node = () => {
         playing={playing}
       />,
     );
-
-    UpdatebtnStyle(3);
+    setVideoGrid(4), UpdatebtnStyle(3);
   };
   const LoadIngredients = () => {
     setcurrentScreen(<Ingrediants ingredients={ingredients} />);
     UpdatebtnStyle(2);
+    setVideoGrid(3);
   };
   const LoadInstructions = () => {
     setcurrentScreen(<Instruction instructions={instructions} />);
     UpdatebtnStyle(1);
+    setVideoGrid(3);
   };
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => getDataFromApi()}>
-        <Text style={{color: '#FF8A00'}}>get meal !</Text>
-      </TouchableOpacity>
       <Grid>
         <Row size={2}>
           <View style={{width: '100%'}}>
@@ -235,10 +247,14 @@ const App: () => React$Node = () => {
           </View>
         </Row>
 
-        <Row size={3}>
+        <Row size={VideoGrid}>
           <View
-            style={{backgroundColor: 'white', width: '100%', height: '100%'}}>
-            <View style={{height: '10%', marginVertical: 25}}>
+            style={{
+              backgroundColor: 'white',
+              width: '100%',
+              height: '100%',
+            }}>
+            <View style={{height: '10%', marginVertical: 30}}>
               <Grid>
                 <Col>
                   <TouchableOpacity
@@ -300,6 +316,26 @@ const App: () => React$Node = () => {
               </Grid>
             </View>
             {currentScreen}
+          </View>
+        </Row>
+        <Row size={0.4}>
+          <View
+            style={{
+              backgroundColor: '#FF8A00',
+              padding: 10,
+              alignContent: 'center',
+              justifyContent: 'center',
+              borderTopLeftRadius: 10,
+              borderTopRightRadius: 10,
+              flex: 1,
+            }}>
+            <TouchableOpacity
+              style={{alignContent: 'center', alignItems: 'center'}}
+              onPress={() => getDataFromApi()}>
+              <Text style={{color: 'white', fontWeight: 'bold', fontSize: 17}}>
+                Get new meal
+              </Text>
+            </TouchableOpacity>
           </View>
         </Row>
       </Grid>
