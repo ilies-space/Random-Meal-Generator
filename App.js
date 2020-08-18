@@ -122,8 +122,80 @@ const App: () => React$Node = () => {
     <Instruction instructions={instructions} />,
   );
 
+  const [btn1Style, setbtn1Style] = useState('#FF8A00');
+  const [txt1Style, settxt1Style] = useState('white');
+
+  const [btn2Style, setbtn2Style] = useState('#F0F6F5');
+  const [txt2Style, settxt2Style] = useState('#9DB4A0');
+
+  const [btn3Style, setbtn3Style] = useState('#F0F6F5');
+  const [txt3Style, settxt3Style] = useState('#9DB4A0');
+
+  function UpdatebtnStyle(selectedBtn) {
+    switch (selectedBtn) {
+      case 1:
+        setbtn1Style('#FF8A00');
+        settxt1Style('white');
+        //
+        setbtn2Style('#F0F6F5');
+        settxt2Style('#9DB4A0');
+        //
+        setbtn3Style('#F0F6F5');
+        settxt3Style('#9DB4A0');
+        break;
+
+      case 2:
+        setbtn2Style('#FF8A00');
+        settxt2Style('white');
+        //
+        setbtn1Style('#F0F6F5');
+        settxt1Style('#9DB4A0');
+        //
+        setbtn3Style('#F0F6F5');
+        settxt3Style('#9DB4A0');
+        break;
+
+      case 3:
+        setbtn3Style('#FF8A00');
+        settxt3Style('white');
+        //
+        setbtn2Style('#F0F6F5');
+        settxt2Style('#9DB4A0');
+        //
+        setbtn1Style('#F0F6F5');
+        settxt1Style('#9DB4A0');
+        break;
+
+      default:
+        break;
+    }
+  }
+
+  const LoadVideo = () => {
+    setcurrentScreen(
+      <YoutubeDisplayer
+        playerRef={playerRef}
+        YoutubeVideoID={YoutubeVideoID}
+        playing={playing}
+      />,
+    );
+
+    UpdatebtnStyle(3);
+  };
+  const LoadIngredients = () => {
+    setcurrentScreen(<Ingrediants ingredients={ingredients} />);
+    UpdatebtnStyle(2);
+  };
+  const LoadInstructions = () => {
+    setcurrentScreen(<Instruction instructions={instructions} />);
+    UpdatebtnStyle(1);
+  };
+
   return (
     <View style={styles.container}>
+      <TouchableOpacity onPress={() => getDataFromApi()}>
+        <Text style={{color: '#FF8A00'}}>get meal !</Text>
+      </TouchableOpacity>
       <Grid>
         <Row size={2}>
           <View style={{width: '100%'}}>
@@ -170,21 +242,17 @@ const App: () => React$Node = () => {
               <Grid>
                 <Col>
                   <TouchableOpacity
-                    onPress={() =>
-                      setcurrentScreen(
-                        <Instruction instructions={instructions} />,
-                      )
-                    }
+                    onPress={() => LoadInstructions()}
                     style={{
                       alignItems: 'center',
-                      backgroundColor: '#FF8A00',
+                      backgroundColor: btn1Style,
                       borderRadius: 20,
                       padding: 10,
                       marginHorizontal: 10,
                     }}>
                     <Text
                       style={{
-                        color: 'white',
+                        color: txt1Style,
                         fontSize: 16,
                       }}>
                       instructions
@@ -193,21 +261,17 @@ const App: () => React$Node = () => {
                 </Col>
                 <Col>
                   <TouchableOpacity
-                    onPress={() =>
-                      setcurrentScreen(
-                        <Ingrediants ingredients={ingredients} />,
-                      )
-                    }
+                    onPress={() => LoadIngredients()}
                     style={{
                       alignItems: 'center',
-                      backgroundColor: '#F0F6F5',
+                      backgroundColor: btn2Style,
                       borderRadius: 20,
                       padding: 10,
                       marginHorizontal: 10,
                     }}>
                     <Text
                       style={{
-                        color: '#9DB4A0',
+                        color: txt2Style,
                         fontSize: 16,
                       }}>
                       ingredients
@@ -216,25 +280,17 @@ const App: () => React$Node = () => {
                 </Col>
                 <Col>
                   <TouchableOpacity
-                    onPress={() =>
-                      setcurrentScreen(
-                        <YoutubeDisplayer
-                          playerRef={playerRef}
-                          YoutubeVideoID={YoutubeVideoID}
-                          playing={playing}
-                        />,
-                      )
-                    }
+                    onPress={() => LoadVideo()}
                     style={{
                       alignItems: 'center',
-                      backgroundColor: '#F0F6F5',
+                      backgroundColor: btn3Style,
                       borderRadius: 20,
                       padding: 10,
                       marginHorizontal: 10,
                     }}>
                     <Text
                       style={{
-                        color: '#9DB4A0',
+                        color: txt3Style,
                         fontSize: 16,
                       }}>
                       Video
@@ -247,7 +303,6 @@ const App: () => React$Node = () => {
           </View>
         </Row>
       </Grid>
-      <Button title="get meal !" onPress={() => getDataFromApi()} />
     </View>
   );
 };

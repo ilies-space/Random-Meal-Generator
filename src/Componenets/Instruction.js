@@ -9,7 +9,9 @@ export const Instruction = ({instructions}) => {
         Instructions
       </Text>
       <View style={{backgroundColor: 'white', height: '100%'}}>
-        <Text>{instructions}</Text>
+        <Text style={{color: '#979797', fontWeight: 'bold', fontSize: 15}}>
+          {instructions}
+        </Text>
       </View>
     </ScrollView>
   );
