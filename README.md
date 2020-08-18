@@ -4,3 +4,4 @@
 " improve UI design
 " impliment Loading Indicator
 " Network  cheking indicator
+" Add walkthrough screen
