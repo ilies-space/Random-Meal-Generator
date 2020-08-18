@@ -130,19 +130,24 @@ const App: () => React$Node = () => {
             <MealImage img={img} />
           </View>
         </Row>
-        <Row size={1}>
+        <Row size={0.8}>
           <View
             style={{
               backgroundColor: '#F0F6F5',
               borderBottomLeftRadius: 40,
               borderBottomRightRadius: 40,
               width: '100%',
+              justifyContent: 'center',
             }}>
-            <View style={{flexDirection: 'row'}}>
+            <View style={{flexDirection: 'row', marginHorizontal: 20}}>
               <View style={{width: '90%'}}>
-                <Text style={{fontWeight: 'bold', fontSize: 18}}>{title}</Text>
-                <Text style={{fontSize: 12}}> {categorie} </Text>
-                <Text style={{fontSize: 12}}> {area} </Text>
+                <Text style={{fontWeight: 'bold', fontSize: 20, marginTop: 18}}>
+                  {title}
+                </Text>
+                <Text
+                  style={{fontSize: 12, color: '#FF8A00', fontWeight: 'bold'}}>
+                  {categorie}
+                </Text>
               </View>
 
               <View
@@ -150,16 +155,18 @@ const App: () => React$Node = () => {
                   width: '10%',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  justifyContent: 'center',
                 }}>
-                <Icon name="heart" size={30} color="red" />
+                <Icon name="heart" size={24} color="#F26161" />
               </View>
             </View>
           </View>
         </Row>
 
         <Row size={3}>
-          <View style={{backgroundColor: 'white', width: '100%'}}>
-            <View style={{height: '10%', margin: 10}}>
+          <View
+            style={{backgroundColor: 'white', width: '100%', height: '100%'}}>
+            <View style={{height: '10%', marginVertical: 25}}>
               <Grid>
                 <Col>
                   <TouchableOpacity
@@ -170,12 +177,18 @@ const App: () => React$Node = () => {
                     }
                     style={{
                       alignItems: 'center',
-                      backgroundColor: 'red',
+                      backgroundColor: '#FF8A00',
                       borderRadius: 20,
                       padding: 10,
                       marginHorizontal: 10,
                     }}>
-                    <Text>instructions</Text>
+                    <Text
+                      style={{
+                        color: 'white',
+                        fontSize: 16,
+                      }}>
+                      instructions
+                    </Text>
                   </TouchableOpacity>
                 </Col>
                 <Col>
@@ -187,12 +200,18 @@ const App: () => React$Node = () => {
                     }
                     style={{
                       alignItems: 'center',
-                      backgroundColor: 'gray',
+                      backgroundColor: '#F0F6F5',
                       borderRadius: 20,
                       padding: 10,
                       marginHorizontal: 10,
                     }}>
-                    <Text>ingredients</Text>
+                    <Text
+                      style={{
+                        color: '#9DB4A0',
+                        fontSize: 16,
+                      }}>
+                      ingredients
+                    </Text>
                   </TouchableOpacity>
                 </Col>
                 <Col>
@@ -208,12 +227,18 @@ const App: () => React$Node = () => {
                     }
                     style={{
                       alignItems: 'center',
-                      backgroundColor: 'gray',
+                      backgroundColor: '#F0F6F5',
                       borderRadius: 20,
                       padding: 10,
                       marginHorizontal: 10,
                     }}>
-                    <Text>Video</Text>
+                    <Text
+                      style={{
+                        color: '#9DB4A0',
+                        fontSize: 16,
+                      }}>
+                      Video
+                    </Text>
                   </TouchableOpacity>
                 </Col>
               </Grid>

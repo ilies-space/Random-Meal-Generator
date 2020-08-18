@@ -3,7 +3,7 @@ import {View, Text, ScrollView} from 'react-native';
 
 export const Ingrediants = ({ingredients}) => {
   return (
-    <ScrollView style={{width: '100%'}}>
+    <ScrollView style={{width: '100%', paddingHorizontal: 20}}>
       {ingredients.map((data, key) => {
         return (
           <View style={{flexDirection: 'row'}} key={key}>

@@ -3,12 +3,14 @@ import {View, Text, ScrollView} from 'react-native';
 
 export const Instruction = ({instructions}) => {
   return (
-    <View>
-      <Text style={{fontWeight: 'bold', fontSize: 18}}>Instructions</Text>
-
-      <ScrollView>
+    <ScrollView
+      style={{backgroundColor: 'white', height: '100%', paddingHorizontal: 20}}>
+      <Text style={{fontWeight: 'bold', fontSize: 23, marginBottom: 10}}>
+        Instructions
+      </Text>
+      <View style={{backgroundColor: 'white', height: '100%'}}>
         <Text>{instructions}</Text>
-      </ScrollView>
-    </View>
+      </View>
+    </ScrollView>
   );
 };
