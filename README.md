@@ -7,7 +7,7 @@
 </div>
 
 ### Showcase
-Coming Soon ...
+(showcase.gif)
 
 ## User Stories
 - [ ] User can click a button that will get a random meal from an external API.
