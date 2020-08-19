@@ -269,7 +269,7 @@ const App: () => React$Node = () => {
                     <Text
                       style={{
                         color: txt1Style,
-                        fontSize: 16,
+                        fontSize: 15,
                       }}>
                       instructions
                     </Text>
@@ -288,7 +288,7 @@ const App: () => React$Node = () => {
                     <Text
                       style={{
                         color: txt2Style,
-                        fontSize: 16,
+                        fontSize: 15,
                       }}>
                       ingredients
                     </Text>
@@ -307,7 +307,7 @@ const App: () => React$Node = () => {
                     <Text
                       style={{
                         color: txt3Style,
-                        fontSize: 16,
+                        fontSize: 15,
                       }}>
                       Video
                     </Text>
