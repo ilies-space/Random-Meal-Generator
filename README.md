@@ -14,3 +14,6 @@ Coming Soon ...
 - [ ] The app display: **Recipe name**, **Ingredients**, **Instructions** and a **Picture** of the meal with a **YouTube Video**.
 - [ ] By clicking the button again, another meal will be generated.
 
+Made with ❤ in Algeria 
+by : <a href= 'https://www.instagram.com/ilies_ouldmenouer/' >ilies Ouldmenouer</a> 
+
