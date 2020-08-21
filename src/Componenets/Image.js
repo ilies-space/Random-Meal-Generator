@@ -1,7 +1,13 @@
 import React from 'react';
-import {View, Image} from 'react-native';
-
+import {View, Image, Button, Text} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+// icon pack
+import Icon from 'react-native-vector-icons/MaterialIcons';
+//navigation
+import {useNavigation} from '@react-navigation/native';
 export const MealImage = ({img}) => {
+  //const
+  const navigation = useNavigation();
   return (
     <View
       style={{
@@ -21,6 +27,18 @@ export const MealImage = ({img}) => {
           uri: img,
         }}
       />
+      <View
+        style={{
+          position: 'absolute',
+          top: 5,
+          left: 5,
+        }}>
+        <TouchableOpacity
+          style={{backgroundColor: '#FF8A00', borderRadius: 8}}
+          onPress={() => navigation.openDrawer()}>
+          <Icon name="menu" size={36} color="white" />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

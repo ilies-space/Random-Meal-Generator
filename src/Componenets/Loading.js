@@ -13,7 +13,7 @@ export const Loading = ({modalVisible}) => {
     <View style={{}}>
       <Modal
         animationType="slide"
-        transparent={false}
+        transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
           Alert.alert('Modal has been closed.');
