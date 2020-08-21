@@ -28,6 +28,7 @@ export const Main = () => {
       .then((responseJson) => {
         setModalVisible(true);
         //Update Data & UI :
+
         setTitle(responseJson.meals[0].strMeal);
         setcategorie(responseJson.meals[0].strCategory);
         setInstructions(responseJson.meals[0].strInstructions);
@@ -41,11 +42,11 @@ export const Main = () => {
         settxt2Style('#9DB4A0');
         setbtn3Style('#F0F6F5');
         settxt3Style('#9DB4A0');
-
         setcurrentScreen(
           <Instruction instructions={responseJson.meals[0].strInstructions} />,
         );
         setModalVisible(false);
+        setHeartState('hearto');
       })
       .catch((error) => {
         Alert.alert(error);
@@ -77,6 +78,7 @@ export const Main = () => {
             |  All constants used in the app
    /*----------------------------------------------------- */
   const [modalVisible, setModalVisible] = useState(true);
+  const [HeartState, setHeartState] = useState('hearto');
 
   const [title, setTitle] = useState('Title Goes here !  !');
   const [categorie, setcategorie] = useState('category Goes here ! ');
@@ -210,7 +212,9 @@ export const Main = () => {
                   justifyContent: 'center',
                   justifyContent: 'center',
                 }}>
-                <Icon name="heart" size={24} color="#F26161" />
+                <TouchableOpacity onPress={() => setHeartState('heart')}>
+                  <Icon name={HeartState} size={24} color="#F26161" />
+                </TouchableOpacity>
               </View>
             </View>
           </View>
