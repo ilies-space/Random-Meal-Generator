@@ -1,26 +1,29 @@
 import React from 'react';
 import YoutubePlayer from 'react-native-youtube-iframe';
-import {View} from 'react-native';
+import {View, Text, ToastAndroid, Alert} from 'react-native';
 
 export const YoutubeDisplayer = ({playerRef, YoutubeVideoID, playing}) => {
+  function worning(err) {
+    Alert.alert('info', err, 'ok', [
+      {
+        text: 'ok',
+        style: 'cancel',
+      },
+    ]);
+  }
   return (
-    <View>
+    <View style={{alignItems: 'center'}}>
+      <View style={{position: 'absolute', top: '50%'}}>
+        <Text>Loading pleas wait ...</Text>
+      </View>
       <YoutubePlayer
         ref={playerRef}
-        height={300}
-        width={400}
+        height={'100%'}
+        width={'100%'}
         videoId={YoutubeVideoID}
         play={playing}
-        onChangeState={(event) => console.log(event)}
-        onReady={() => console.log('ready')}
-        onError={(e) => console.log(e)}
-        onPlaybackQualityChange={(q) => console.log(q)}
-        volume={50}
+        volume={100}
         playbackRate={1}
-        initialPlayerParams={{
-          cc_lang_pref: 'us',
-          showClosedCaptions: true,
-        }}
       />
     </View>
   );
