@@ -36,6 +36,7 @@ import {Col, Row, Grid} from 'react-native-easy-grid';
 import {MealImage} from './src/Componenets/Image';
 import {Instruction} from './src/Componenets/Instruction';
 import {Ingrediants} from './src/Componenets/Ingrediants';
+import {Loading} from './src/Componenets/Loading';
 //for dispaying youtube video
 import {YoutubeDisplayer} from './src/Componenets/YoutubeDisplayer';
 // icon pack
@@ -49,6 +50,7 @@ const App: () => React$Node = () => {
     })
       .then((response) => response.json())
       .then((responseJson) => {
+        setModalVisible(true);
         //Update Data & UI :
         setTitle(responseJson.meals[0].strMeal);
         setcategorie(responseJson.meals[0].strCategory);
@@ -63,9 +65,11 @@ const App: () => React$Node = () => {
         settxt2Style('#9DB4A0');
         setbtn3Style('#F0F6F5');
         settxt3Style('#9DB4A0');
+
         setcurrentScreen(
           <Instruction instructions={responseJson.meals[0].strInstructions} />,
         );
+        setModalVisible(false);
       })
       .catch((error) => {
         Alert.alert(error);
@@ -96,6 +100,8 @@ const App: () => React$Node = () => {
   /*----------------------------------------------------- 
             |  All constants used in the app
    /*----------------------------------------------------- */
+  const [modalVisible, setModalVisible] = useState(true);
+
   const [title, setTitle] = useState('Title Goes here !  !');
   const [categorie, setcategorie] = useState('category Goes here ! ');
   const [instructions, setInstructions] = useState(
@@ -188,11 +194,13 @@ const App: () => React$Node = () => {
     UpdatebtnStyle(1);
     setVideoGrid(3);
   };
+
   /*----------------------------------------------------- 
             | Main View (containe everthing)
    /*----------------------------------------------------- */
   return (
     <View style={styles.container}>
+      <Loading modalVisible={modalVisible} />
       <Grid>
         <Row size={2}>
           <View style={{width: '100%'}}>
@@ -317,7 +325,13 @@ const App: () => React$Node = () => {
             <TouchableOpacity
               style={{alignContent: 'center', alignItems: 'center'}}
               onPress={() => getDataFromApi()}>
-              <Text style={{color: 'white', fontWeight: 'bold', fontSize: 17}}>
+              <Text
+                style={{
+                  color: 'white',
+                  fontWeight: 'bold',
+                  fontSize: 17,
+                  paddingHorizontal: 80,
+                }}>
                 Get new meal
               </Text>
             </TouchableOpacity>
