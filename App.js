@@ -1,92 +1,84 @@
+//................................................................................................................................................................................................................................................................................................................................................................
+//.RRRRRRRRRRRRRRRRR..................................................dddddd.........................................................MMMMMMMM.......MMMMMMMM....................................lllll..................GGGGGGGGGGG................................................................................................................................
+//.RRRRRRRRRRRRRRRRRR.................................................dddddd.........................................................MMMMMMMMM.....MMMMMMMMM....................................lllll.................GGGGGGGGGGGGGG........................................................................................ttt...................................
+//.RRRRRRRRRRRRRRRRRRR................................................dddddd.........................................................MMMMMMMMM.....MMMMMMMMM....................................lllll...............GGGGGGGGGGGGGGGGG.....................................................................................ttttt...................................
+//.RRRRRRRRRRRRRRRRRRR................................................dddddd.........................................................MMMMMMMMM.....MMMMMMMMM....................................lllll...............GGGGGGGGGGGGGGGGGG....................................................................................ttttt...................................
+//.RRRRRR.....RRRRRRRR................................................dddddd.........................................................MMMMMMMMMM....MMMMMMMMM....................................lllll..............GGGGGGGGG.GGGGGGGGG....................................................................................ttttt...................................
+//.RRRRRR.......RRRRRR................................................dddddd.........................................................MMMMMMMMMM...MMMMMMMMMM....................................lllll.............GGGGGGGG.....GGGGGGG....................................................................................ttttt...................................
+//.RRRRRR.......RRRRRR.....aaaaaaaaaa.....nnnnnnnnnnnnn.......dddddddddddddd.....oooooooooo.....ommmmmmmmmmmmm.mmmmmmmm..............MMMMMMMMMM...MMMMMMMMMM.....eeeeeeeee.......aaaaaaaaaa.....lllll.............GGGGGGG.......GGGGGGG.....eeeeeeeee.....nnnnn.nnnnnnnn.......eeeeeeeee.....rrrrrrrrrrrr..aaaaaaaaaa...aatttttttt....oooooooooo......rrrrrrrrrr..
+//.RRRRRR.......RRRRRR....aaaaaaaaaaaa....nnnnnnnnnnnnnn.....ddddddddddddddd....oooooooooooo....ommmmmmmmmmmmmmmmmmmmmmm.............MMMMMMMMMM...MMMMMMMMMM...eeeeeeeeeeee.....aaaaaaaaaaaa....lllll.............GGGGGG.........GGGGG....eeeeeeeeeeee....nnnnnnnnnnnnnnn....eeeeeeeeeeee....rrrrrrrrrrr.aaaaaaaaaaaaa..aatttttttt...oooooooooooo.....rrrrrrrrrr..
+//.RRRRRR.....RRRRRRRR...aaaaaaaaaaaaaa...nnnnnnnnnnnnnnn...dddddddddddddddd...oooooooooooooo...ommmmmmmmmmmmmmmmmmmmmmm.............MMMMMMMMMMM..MMMMMMMMMM...eeeeeeeeeeeee...aaaaaaaaaaaaaa...lllll.............GGGGGG..................eeeeeeeeeeeee...nnnnnnnnnnnnnnn....eeeeeeeeeeeee...rrrrrrrrrrr.aaaaaaaaaaaaaa.aatttttttt..oooooooooooooo....rrrrrrrrrr..
+//.RRRRRRRRRRRRRRRRRRR...aaaaaaaaaaaaaa...nnnnnnnnnnnnnnn...ddddddd.dddddddd..oooooooooooooooo..ommmmmmmmmmmmmmmmmmmmmmmm............MMMMMMMMMMM.MMMMMMMMMMM..eeeeeeeeeeeeeee..aaaaaaaaaaaaaa...lllll............-GGGGGG.................Geeeeeeeeeeeeee..nnnnnnnnnnnnnnnn..neeeeeeeeeeeeee..rrrrrrrr...raaaaaa.aaaaaaa...ttttt....tooooooooooooooo...rrrrrrrr....
+//.RRRRRRRRRRRRRRRRRR....aaaaa...aaaaaa...nnnnnn...nnnnnn..ndddddd...ddddddd..oooooo....ooooooo.ommmmmm..mmmmmmm...mmmmmm............MMMMMMMMMMM.MMMMMMMMMMM..eeeeee...eeeeee..aaaaa...aaaaaa...lllll............-GGGGG.....GGGGGGGGGGG..Geeeee...eeeeee..nnnnnnn...nnnnnn..neeeee...eeeeee..rrrrrrr.....aaaaa...aaaaaa...ttttt....tooooo....ooooooo..rrrrrr......
+//.RRRRRRRRRRRRRRRRR..............aaaaa...nnnnnn....nnnnn..nddddd.....dddddd.doooooo.....oooooo.ommmmm....mmmmmm...mmmmmm............MMMMMMMMMMM.MMMMMMMMMMM.Meeeee.....eeeee...........aaaaa...lllll............-GGGGG.....GGGGGGGGGGG.GGeeee.....eeeee..nnnnnn....nnnnnn.nneeee.....eeeee..rrrrrr..............aaaaaa...ttttt...ttooooo.....oooooo..rrrrrr......
+//.RRRRRRRRRRRRRRR............aaaaaaaaa...nnnnn.....nnnnn..nddddd.....dddddd.dooooo......oooooo.ommmmm....mmmmmm...mmmmmm..---------.MMMMMM.MMMMMMMMMMMMMMMM.Meeeeeeeeeeeeeee.......aaaaaaaaa...lllll...----------GGGGGG....GGGGGGGGGGG.GGeeeeeeeeeeeeee..nnnnnn....nnnnnn.nneeeeeeeeeeeeee..rrrrrr...........aaaaaaaaa...ttttt...ttoooo......oooooo..rrrrrr......
+//.RRRRRR.RRRRRRRRR.......aaaaaaaaaaaaa...nnnnn.....nnnnn..nddddd.....dddddd.dooooo......oooooo.ommmmm....mmmmm....mmmmmm..---------.MMMMMM.MMMMMMMMM.MMMMMM.Meeeeeeeeeeeeeee...aaaaaaaaaaaaa...lllll...---------.GGGGGG....GGGGGGGGGGG.GGeeeeeeeeeeeeee..nnnnnn....nnnnnn.nneeeeeeeeeeeeee..rrrrrr.......aaaaaaaaaaaaa...ttttt...ttoooo......oooooo..rrrrrr......
+//.RRRRRR...RRRRRRRR.....aaaaaaaaaaaaaa...nnnnn.....nnnnn..nddddd.....dddddd.dooooo......oooooo.ommmmm....mmmmm....mmmmmm..---------.MMMMMM.MMMMMMMMM.MMMMMM.Meeeeeeeeeeeeeee..aaaaaaaaaaaaaa...lllll...---------.GGGGGG.........GGGGGG.GGeeeeeeeeeeeeee..nnnnnn....nnnnnn.nneeeeeeeeeeeeee..rrrrrr......aaaaaaaaaaaaaa...ttttt...ttoooo......oooooo..rrrrr.......
+//.RRRRRR....RRRRRRR....Raaaaaaaaaaaaaa...nnnnn.....nnnnn..nddddd.....dddddd.dooooo......oooooo.ommmmm....mmmmm....mmmmmm..---------.MMMMMM.MMMMMMMMM.MMMMMM.Meeeee...........eaaaaaaaaaaaaaa...lllll...---------.GGGGGGG........GGGGGG.GGeeee............nnnnnn....nnnnnn.nneeee............rrrrrr.....raaaaaaaaaaaaaa...ttttt...ttoooo......oooooo..rrrrr.......
+//.RRRRRR.....RRRRRRR...Raaaaa...aaaaaa...nnnnn.....nnnnn..nddddd.....dddddd.doooooo.....oooooo.ommmmm....mmmmm....mmmmmm............MMMMMM.MMMMMMMMM.MMMMMM.Meeeee...........eaaaaa...aaaaaa...lllll.............GGGGGGGG......GGGGGGG.GGeeee............nnnnnn....nnnnnn.nneeee............rrrrrr.....raaaaa...aaaaaa...ttttt...ttooooo.....oooooo..rrrrr.......
+//.RRRRRR.....RRRRRRRR..Raaaaa...aaaaaa...nnnnn.....nnnnn..ndddddd...ddddddd..oooooo....oooooo..ommmmm....mmmmm....mmmmmm............MMMMMM..MMMMMMM..MMMMMM..eeeeee..........eaaaaa...aaaaaa...lllll..............GGGGGGGGG.GGGGGGGGGG..Geeeee...........nnnnnn....nnnnnn..neeeee...........rrrrrr.....raaaaa...aaaaaa...ttttt....tooooo....oooooo...rrrrr.......
+//.RRRRRR......RRRRRRR..Raaaaaaaaaaaaaa...nnnnn.....nnnnn...ddddddd.dddddddd..oooooooooooooooo..ommmmm....mmmmm....mmmmmm............MMMMMM..MMMMMMM..MMMMMM..eeeeeee.eeeeeee.eaaaaaaaaaaaaaa...lllll...............GGGGGGGGGGGGGGGGGGG..Geeeeee.eeeeeee..nnnnnn....nnnnnn..neeeeee.eeeeeee..rrrrrr.....raaaaaaaaaaaaaa...tttttttt.tooooooooooooooo...rrrrr.......
+//.RRRRRR.......RRRRRRR.Raaaaaaaaaaaaaa...nnnnn.....nnnnn...dddddddddddddddd...oooooooooooooo...ommmmm....mmmmm....mmmmmm............MMMMMM..MMMMMMM..MMMMMM...eeeeeeeeeeeeee.eaaaaaaaaaaaaaa...lllll...............GGGGGGGGGGGGGGGGGG....eeeeeeeeeeeeee..nnnnnn....nnnnnn...eeeeeeeeeeeeee..rrrrrr.....raaaaaaaaaaaaaa...ttttttttt.oooooooooooooo....rrrrr.......
+//.RRRRRR.......RRRRRRRR.aaaaaaaaaaaaaaa..nnnnn.....nnnnn....ddddddddddddddd....oooooooooooo....ommmmm....mmmmm....mmmmmm............MMMMMM..MMMMMMM..MMMMMM...eeeeeeeeeeeee...aaaaaaaaaaaaaaa..lllll.................GGGGGGGGGGGGGGG.....eeeeeeeeeeeee...nnnnnn....nnnnnn...eeeeeeeeeeeee...rrrrrr.....raaaaaaaaaaaaaa...ttttttttt..oooooooooooo.....rrrrr.......
+//.RRRRRR........RRRRRRR..aaaaaaaaaaaaaa..nnnnn.....nnnnn.....dddddddddddddd.....oooooooooo.....ommmmm....mmmmm....mmmmmm............MMMMMM...MMMMM...MMMMMM.....eeeeeeeeee.....aaaaaaaaaaaaaa..lllll..................GGGGGGGGGGGG.........eeeeeeeeee....nnnnnn....nnnnnn.....eeeeeeeeee....rrrrrr.......aaaaaaaaaaaaaa...tttttttt...oooooooooo......rrrrr.......
+//................................................................................................................................................................................................................................................................................................................................................................
+/**
+ * author : ilies Ould menouer
+ *
+ * 21/08/2020
+ */
 import React, {useState, useRef, useEffect} from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Button,
-  ScrollView,
-  Image,
-  Modal,
-  TouchableOpacity,
-} from 'react-native';
-
-//shaking :
-import RNShake from 'react-native-shake';
-//gride :
+//native components
+import {StyleSheet, View, Text, TouchableOpacity, Alert} from 'react-native';
+//gride (for better ui structure) :
 import {Col, Row, Grid} from 'react-native-easy-grid';
-
-//components
+// used components to display data
 import {MealImage} from './src/Componenets/Image';
 import {Instruction} from './src/Componenets/Instruction';
 import {Ingrediants} from './src/Componenets/Ingrediants';
+//for dispaying youtube video
 import {YoutubeDisplayer} from './src/Componenets/YoutubeDisplayer';
-//
+// icon pack
 import Icon from 'react-native-vector-icons/AntDesign';
-
-//
-
 const App: () => React$Node = () => {
-  //
-  // useEffect(() => {
-  //   RNShake.addEventListener('ShakeEvent', () => {
-  //     console.log('shaked !!');
-  //   });
-  // });
-  const [isLoading, setisLoading] = useState(false);
-
-  //
   const playerRef = useRef(null);
-  const [playing, setPlaying] = useState(true);
-  //
-  // functions goas here
 
   function getDataFromApi() {
-    console.log('getDataFromApi');
     fetch('https://www.themealdb.com/api/json/v1/1/random.php', {
       method: 'GET',
     })
       .then((response) => response.json())
       .then((responseJson) => {
-        //
+        //Update Data & UI :
         setTitle(responseJson.meals[0].strMeal);
-        //
         setcategorie(responseJson.meals[0].strCategory);
-        //
-        setArea(responseJson.meals[0].strArea);
-        //
         setInstructions(responseJson.meals[0].strInstructions);
-        //
         setImg(responseJson.meals[0].strMealThumb);
-        //
-        //setYoutubeLink(responseJson.meals[0].strYoutube);
         setYoutubeVideoID(responseJson.meals[0].strYoutube.substring(32, 43));
-
-        // integredients :
         setingredients([]);
         getIntegredients(responseJson.meals[0]);
-        //default screen:
-        setcurrentScreen(<Instruction instructions={instructions} />);
         setbtn1Style('#FF8A00');
         settxt1Style('white');
-        //
         setbtn2Style('#F0F6F5');
         settxt2Style('#9DB4A0');
-        //
         setbtn3Style('#F0F6F5');
         settxt3Style('#9DB4A0');
+        setcurrentScreen(
+          <Instruction instructions={responseJson.meals[0].strInstructions} />,
+        );
       })
       .catch((error) => {
-        console.error(error);
-      })
-      .finally(() => setisLoading(false));
+        Alert.alert(error);
+      });
   }
+  useEffect(getDataFromApi, []);
 
-  //function :
+  /*----------------------------------------------------- 
+            |  Integredients containe 2 information
+            so we put the result in array of object [{x1,x2},{...}]
+   /*----------------------------------------------------- */
+
   function getIntegredients(allData) {
-    console.log(
-      allData[`strIngredient${1}`] + ' /' + allData[`strMeasure${1}`],
-    );
-
     for (let index = 0; index < 20; index++) {
       if (allData[`strIngredient${index}`]) {
         setingredients((prevList) => {
@@ -98,53 +90,41 @@ const App: () => React$Node = () => {
             ...prevList,
           ];
         });
-
-        console.log(
-          allData[`strIngredient${index}`] +
-            ' /' +
-            allData[`strMeasure${index}`],
-        );
       }
     }
   }
-  //
-
-  //const goas here
-
-  const [ingredients, setingredients] = useState([
-    {strIngredient: 'strIngredientExmple'},
-  ]);
-
-  const [YoutubeVideoID, setYoutubeVideoID] = useState('youtube id');
-
-  const [title, setTitle] = useState('Title Exmple !');
-
-  const [categorie, setcategorie] = useState('category exmple');
-  const [area, setArea] = useState('exmple area');
-
+  /*----------------------------------------------------- 
+            |  All constants used in the app
+   /*----------------------------------------------------- */
+  const [title, setTitle] = useState('Title Goes here !  !');
+  const [categorie, setcategorie] = useState('category Goes here ! ');
+  const [instructions, setInstructions] = useState(
+    'instruction Goes here (click on Get new meal)! ',
+  );
+  const [VideoGrid, setVideoGrid] = useState(3);
+  const [btn1Style, setbtn1Style] = useState('#FF8A00');
+  const [txt1Style, settxt1Style] = useState('white');
+  const [btn2Style, setbtn2Style] = useState('#F0F6F5');
+  const [txt2Style, settxt2Style] = useState('#9DB4A0');
+  const [btn3Style, setbtn3Style] = useState('#F0F6F5');
+  const [txt3Style, settxt3Style] = useState('#9DB4A0');
   const [img, setImg] = useState(
     'https://www.themealdb.com/images/media/meals/wrpwuu1511786491.jpg',
   );
-  const [instructions, setInstructions] = useState('instruction Exmple');
-
+  const [ingredients, setingredients] = useState([
+    {strIngredient: 'ingredients Goes here ! '},
+  ]);
+  const [YoutubeVideoID, setYoutubeVideoID] = useState(
+    'youtube video Goes here ! ',
+  );
   const [currentScreen, setcurrentScreen] = useState(
     <Instruction instructions={instructions} />,
   );
 
-  //
-  const [VideoGrid, setVideoGrid] = useState(3);
-
-  //
-
-  const [btn1Style, setbtn1Style] = useState('#FF8A00');
-  const [txt1Style, settxt1Style] = useState('white');
-
-  const [btn2Style, setbtn2Style] = useState('#F0F6F5');
-  const [txt2Style, settxt2Style] = useState('#9DB4A0');
-
-  const [btn3Style, setbtn3Style] = useState('#F0F6F5');
-  const [txt3Style, settxt3Style] = useState('#9DB4A0');
-
+  /*----------------------------------------------------- 
+            | Handle Bttons on click style for 
+            (Instructions / ingredients/video)
+   /*----------------------------------------------------- */
   function UpdatebtnStyle(selectedBtn) {
     switch (selectedBtn) {
       case 1:
@@ -184,13 +164,16 @@ const App: () => React$Node = () => {
         break;
     }
   }
-
+  /*----------------------------------------------------- 
+            | HAndle Displaying information
+            (cmponents used from src/Componenets/)
+   /*----------------------------------------------------- */
   const LoadVideo = () => {
     setcurrentScreen(
       <YoutubeDisplayer
         playerRef={playerRef}
         YoutubeVideoID={YoutubeVideoID}
-        playing={playing}
+        playing={true}
       />,
     );
     setVideoGrid(4), UpdatebtnStyle(3);
@@ -205,7 +188,9 @@ const App: () => React$Node = () => {
     UpdatebtnStyle(1);
     setVideoGrid(3);
   };
-
+  /*----------------------------------------------------- 
+            | Main View (containe everthing)
+   /*----------------------------------------------------- */
   return (
     <View style={styles.container}>
       <Grid>
@@ -343,6 +328,9 @@ const App: () => React$Node = () => {
   );
 };
 
+/*----------------------------------------------------- 
+            | Views styling
+   /*----------------------------------------------------- */
 const styles = StyleSheet.create({
   container: {
     flex: 1,
