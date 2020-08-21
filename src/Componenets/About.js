@@ -26,6 +26,7 @@ export const About = () => {
           borderRadius: 10,
           elevation: 5,
           marginBottom: 20,
+          marginHorizontal: 15,
         }}>
         <View style={{alignItems: 'center', margin: 20}}>
           <Image

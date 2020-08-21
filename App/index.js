@@ -15,7 +15,7 @@ export default () => {
     <View flex={1}>
       <NavigationContainer>
         <Drawer.Navigator
-          initialRouteName="Home"
+          initialRouteName="About"
           drawerContentOptions={{
             activeTintColor: '#FF8A00',
             backgroundColor: '#1C2227',
